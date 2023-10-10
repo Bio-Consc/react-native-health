@@ -252,8 +252,6 @@ NSString * const kMetadataKey = @"metadata";
     return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
 }
 
-//+ (HKSampleType *)vital
-
 + (HKSampleType *)clinicalTypeFromName:(NSString *)type {
     if (@available(iOS 12.0, *)) {
         if ([type isEqual:@"AllergyRecord"]){
