@@ -594,7 +594,7 @@
                      hasListeners:(bool)hasListeners
 {
     HKSampleType *sampleType = [RCTAppleHealthKit bodyTypeFromName: type];
-    [self setObserverForType:sampleType type:type bridge:bridge hasListeners:hasListeners]
+    [self setObserverForType:sampleType type:type bridge:bridge hasListeners:hasListeners];
 }
 
 @end
