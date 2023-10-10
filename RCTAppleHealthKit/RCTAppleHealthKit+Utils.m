@@ -216,6 +216,8 @@ NSString * const kMetadataKey = @"metadata";
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierFlightsClimbed];
     } else if ([type isEqual:@"StepCount"]){
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+    } else if ([type isEqual:@"DistanceWalkingRunning"]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceWalkingRunning];
     } else if ([type isEqual:@"Swimming"]){
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceSwimming];
     } else if ([type isEqual:@"Vo2Max"]){
@@ -224,10 +226,33 @@ NSString * const kMetadataKey = @"metadata";
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
     } else if ([type isEqual:@"Workout"]) {
         return [HKObjectType workoutType];
-    }
+    } else if ([type isEqual:@"BloodGlucose"]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodGlucose];
+    } 
+    
 
     return [HKObjectType workoutType];
 }
+
++ (HKSampleType *)categoryTypeFromName:(NSString *)type {
+    if ([type isEqual:@"SleepAnalysis"]) {
+        return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierSleepAnalysis];
+    }
+    
+    return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierSleepAnalysis];
+}
+
++ (HKSampleType *)bodyTypeFromName:(NSString *)type {
+    if ([type isEqual:@"Height"]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeight];
+    } else if ([type isEqual:@"Weight"]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
+    }
+    
+    return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
+}
+
+//+ (HKSampleType *)vital
 
 + (HKSampleType *)clinicalTypeFromName:(NSString *)type {
     if (@available(iOS 12.0, *)) {

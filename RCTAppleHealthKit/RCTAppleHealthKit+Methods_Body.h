@@ -40,4 +40,6 @@
 - (void)body_getLeanBodyMassSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)body_saveLeanBodyMass:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 
+- (void)body__registerObserver:(NSString *)type bridge:(RCTBridge *)bridge hasListeners:(bool)hasListeners;
+
 @end

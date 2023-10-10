@@ -16,7 +16,7 @@
 #import "RCTAppleHealthKit+Methods_Characteristic.h"
 #import "RCTAppleHealthKit+Methods_Vitals.h"
 #import "RCTAppleHealthKit+Methods_Results.h"
-#import "RCTAppleHealthKit+Methods_Sleep.h"
+#import "RCTAppleHealthKit+Methods_Category.h"
 #import "RCTAppleHealthKit+Methods_Mindfulness.h"
 #import "RCTAppleHealthKit+Methods_Workout.h"
 #import "RCTAppleHealthKit+Methods_LabTests.h"
@@ -790,16 +790,34 @@ RCT_EXPORT_METHOD(getClinicalRecords:(NSDictionary *)input callback:(RCTResponse
             @"Running",
             @"StairClimbing",
             @"StepCount",
+            @"DistanceWalkingRunning",
             @"Swimming",
             @"Vo2Max",
             @"Walking",
             @"Workout",
             @"MindfulSession",
-            @"SleepAnalysis",
+            @"BloodGlucose"
         ];
 
         for(NSString * type in fitnessObservers) {
             [self fitness_registerObserver:type bridge:bridge hasListeners:hasListeners];
+        }
+        
+        NSArray *categoryObservers = @[
+            @"SleepAnalysis"
+        ];
+        
+        for (NSString * type in categoryObservers) {
+            [self category_registerObserver:type bridge:bridge hasListeners:hasListeners];
+        }
+        
+        NSArray *bodyObservers = @[
+            @"Height",
+            @"Weight"
+        ];
+
+        for (NSString * type in bodyObservers) {
+            [self category_registerObserver:type bridge:bridge hasListeners:hasListeners];
         }
         
         NSArray *clinicalObservers = @[

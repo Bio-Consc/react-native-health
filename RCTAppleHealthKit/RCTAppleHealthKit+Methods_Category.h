@@ -1,5 +1,5 @@
 //
-//  RCTAppleHealthKit+Methods_Sleep.h
+//  RCTAppleHealthKit+Methods_Category.h
 //  RCTAppleHealthKit
 //
 //  This source code is licensed under the MIT-style license found in the
@@ -8,8 +8,12 @@
 
 #import "RCTAppleHealthKit.h"
 
-@interface RCTAppleHealthKit (Methods_Sleep)
+@interface RCTAppleHealthKit (Methods_Category)
 
 - (void)sleep_getSleepSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+
+- (void)category_registerObserver:(NSString *)type
+                          bridge:(RCTBridge *)bridge
+                    hasListeners:(bool)hasListeners;
 
 @end

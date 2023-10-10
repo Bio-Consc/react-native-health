@@ -1,16 +1,16 @@
 //
-//  RCTAppleHealthKit+Methods_Sleep.m
+//  RCTAppleHealthKit+Methods_Category.m
 //  RCTAppleHealthKit
 //
 //  This source code is licensed under the MIT-style license found in the
 //  LICENSE file in the root directory of this source tree.
 //
 
-#import "RCTAppleHealthKit+Methods_Sleep.h"
+#import "RCTAppleHealthKit+Methods_Category.h"
 #import "RCTAppleHealthKit+Queries.h"
 #import "RCTAppleHealthKit+Utils.h"
 
-@implementation RCTAppleHealthKit (Methods_Sleep)
+@implementation RCTAppleHealthKit (Methods_Category)
 
 
 - (void)sleep_getSleepSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
@@ -41,5 +41,12 @@
 
 }
 
+- (void)category_registerObserver:(NSString *)type
+                           bridge:(RCTBridge *)bridge
+                     hasListeners:(bool)hasListeners
+{
+    HKSampleType *sampleType = [RCTAppleHealthKit categoryTypeFromName: type];
+    [self setObserverForType:sampleType type:type bridge:bridge hasListeners:hasListeners]
+}
 
 @end
