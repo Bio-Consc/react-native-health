@@ -700,6 +700,12 @@ RCT_EXPORT_METHOD(getClinicalRecords:(NSDictionary *)input callback:(RCTResponse
         @"SleepAnalysis",
         @"InsulinDelivery",
         @"BloodGlucose",
+        @"BloodPressureSystolic",
+        @"BloodPressureDiastolic",
+        @"Height",
+        @"Weight",
+        @"HeartRateVariability",
+        @"DistanceWalkingRunning"
     ];
     
     NSArray *templates = @[@"healthKit:%@:new", @"healthKit:%@:failure", @"healthKit:%@:enabled", @"healthKit:%@:sample", @"healthKit:%@:setup:success", @"healthKit:%@:setup:failure"];
